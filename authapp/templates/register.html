@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Signup</title>
+  </head>
+  <body>
+    {% block content %}
+      <h1>Register Here</h1>
+        {% if messages %}
+          <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        <form method='post'>
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" name="submit" value="register">
+        </form>
+        <p>please <a href="{% url "home" %}">login</a></p>
+
+    {% endblock %}
+  </body>
+</html>
