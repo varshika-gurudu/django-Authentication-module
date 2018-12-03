@@ -29,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/',views.register,name = 'signup'),
     path('home/',views.login_view,name = 'home'),
+    path('logout/',views.log_out,name = 'logout'),
     #path('^', include('django.contrib.auth.urls')),
     path('login/',views.index,name = 'login'),
     path(
@@ -48,7 +49,7 @@ urlpatterns = [
         name='password_reset_confirm'
         ),
     path(
-        r'^reset/done/$', PasswordResetCompleteView.as_view(),
+        'reset/done/', PasswordResetCompleteView.as_view(),
         {'template_name':'password_reset_complete.html'},
         name='password_reset_complete'
         ),
